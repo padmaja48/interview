@@ -1,0 +1,407 @@
+/* ═══════════════════════════════════════════════════
+   FluentAI — Cream & Teal Design System
+═══════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Dark theme (teal-tinted) ─────────────────────── */
+:root {
+  /* Surfaces */
+  --bg:        #0c1413;
+  --surface:   #111a19;
+  --surface2:  #172422;
+  --surface3:  #1e2e2b;
+
+  /* Borders */
+  --border:    #2a3d39;
+  --border2:   #35504a;
+
+  /* Accent — Teal */
+  --accent:        #14b8a6;
+  --accent-hover:  #2dd4bf;
+  --accent-dim:    rgba(20, 184, 166, 0.14);
+  --accent-glow:   rgba(20, 184, 166, 0.28);
+
+  /* Text */
+  --text:      #ecfdf8;
+  --text2:     #b6d0c8;
+  --text3:     #8aaba2;
+  --text-muted: #7d9e95;
+
+  /* Status */
+  --success:        #34d399;
+  --success-dim:    rgba(52, 211, 153, 0.14);
+  --warn:           #f59e0b;
+  --warn-dim:       rgba(245, 158, 11, 0.12);
+  --danger:         #f87171;
+  --danger-dim:     rgba(248, 113, 113, 0.12);
+  --info:           #2dd4bf;
+  --info-dim:       rgba(45, 212, 191, 0.12);
+
+  /* Shape */
+  --radius:    6px;
+  --radius2:   10px;
+  --radius3:   16px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow:    0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.6);
+
+  /* Typography */
+  --ff: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fm: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Layout aliases */
+  --app-bg:       #0c1413;
+  --nav-bg:       rgba(12, 20, 19, 0.96);
+  --card:         #111a19;
+  --card-soft:    #172422;
+  --title:        #ecfdf8;
+  --muted:        #a7c4bc;
+  --soft-border:  #2a3d39;
+  --subtle-shadow: 0 8px 32px rgba(0,0,0,0.4);
+
+  /* Cream helpers (mainly for light; useful in dark mixes) */
+  --cream:        #f5f0e8;
+  --cream-soft:   #faf7f2;
+  --teal-deep:    #0f766e;
+  --teal:         #14b8a6;
+  --teal-soft:    #99f6e4;
+
+  /* Theme-aware soft surfaces (cards / chips / selection) */
+  --soft-card-bg: linear-gradient(155deg, #1c2b28 0%, #15211f 48%, #111a19 100%);
+  --soft-chip-bg: linear-gradient(155deg, #1a2724 0%, #14201e 100%);
+  --selected-item-bg: linear-gradient(155deg, #1a322e 0%, #143029 55%, #122422 100%);
+  --selected-item-hover: color-mix(in srgb, var(--accent) 10%, var(--surface2));
+  --nav-active-bg: linear-gradient(90deg, rgba(20, 184, 166, 0.2) 0%, rgba(20, 184, 166, 0.06) 100%);
+  --gloss-top: rgba(255, 255, 255, 0.07);
+  --inset-highlight: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+
+  /* 3D bubble cards */
+  --bubble-radius: 22px;
+  --bubble-bg: linear-gradient(155deg, #1a2624 0%, #111a19 55%, #0e1615 100%);
+  --bubble-border: rgba(255, 255, 255, 0.08);
+  --bubble-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 -12px 28px rgba(0, 0, 0, 0.4) inset,
+    0 14px 32px rgba(0, 0, 0, 0.48),
+    0 2px 8px rgba(20, 184, 166, 0.1);
+  --bubble-shadow-hover:
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 -10px 22px rgba(0, 0, 0, 0.32) inset,
+    0 18px 40px rgba(0, 0, 0, 0.55),
+    0 4px 14px rgba(20, 184, 166, 0.2);
+}
+
+/* ── Light theme — cream + teal ───────────────────── */
+:root[data-theme='light'] {
+  --bg:        #f3eee4;
+  --surface:   #fffdf8;
+  --surface2:  #efe6d8;
+  --surface3:  #e5d9c8;
+
+  --border:    #ddd0bc;
+  --border2:   #c9bba6;
+
+  --accent:        #0f766e;
+  --accent-hover:  #0d9488;
+  --accent-dim:    rgba(15, 118, 110, 0.12);
+  --accent-glow:   rgba(15, 118, 110, 0.22);
+
+  --text:      #1a2e2b;
+  --text2:     #3d524e;
+  --text3:     #5a6f6a;
+  --text-muted: #6f827c;
+
+  --success:        #0f766e;
+  --success-dim:    rgba(15, 118, 110, 0.12);
+  --warn:           #b45309;
+  --warn-dim:       rgba(180, 83, 9, 0.1);
+  --danger:         #dc2626;
+  --danger-dim:     rgba(220, 38, 38, 0.08);
+  --info:           #0d9488;
+  --info-dim:       rgba(13, 148, 136, 0.12);
+
+  --shadow-sm: 0 1px 3px rgba(15, 118, 110, 0.06);
+  --shadow:    0 6px 20px rgba(15, 118, 110, 0.08);
+  --shadow-lg: 0 14px 40px rgba(15, 118, 110, 0.12);
+
+  --app-bg:       #f3eee4;
+  --nav-bg:       rgba(255, 253, 248, 0.94);
+  --card:         #fffdf8;
+  --card-soft:    #f7f2e9;
+  --title:        #134e4a;
+  --muted:        #5a6f6a;
+  --soft-border:  #ddd0bc;
+  --subtle-shadow: 0 10px 32px rgba(15, 118, 110, 0.08);
+
+  --cream:        #f3eee4;
+  --cream-soft:   #fffdf8;
+  --cream-warm:   #ebe3d4;
+  --teal-deep:    #0f766e;
+  --teal:         #14b8a6;
+  --teal-soft:    #ccfbf1;
+  --teal-mist:    #f0fdfa;
+
+  /* Theme-aware soft surfaces */
+  --soft-card-bg: linear-gradient(160deg, #ffffff 0%, #f7f2e9 48%, #f0fdfa 100%);
+  --soft-chip-bg: linear-gradient(160deg, #ffffff 0%, #f0fdfa 55%, #f7f2e9 100%);
+  --selected-item-bg: linear-gradient(155deg, #ffffff 0%, #f0fdfa 55%, #e6fffa 100%);
+  --selected-item-hover: color-mix(in srgb, var(--surface) 80%, #fff);
+  --nav-active-bg: linear-gradient(90deg, rgba(15, 118, 110, 0.14) 0%, rgba(240, 253, 250, 0.65) 100%);
+  --gloss-top: rgba(255, 255, 255, 0.55);
+  --inset-highlight: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+
+  /* 3D bubble cards — cream with teal depth */
+  --bubble-radius: 22px;
+  --bubble-bg: linear-gradient(
+    155deg,
+    #ffffff 0%,
+    #fffdf8 38%,
+    #f5faf8 72%,
+    #f0ebe3 100%
+  );
+  --bubble-border: rgba(255, 255, 255, 0.95);
+  --bubble-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.98) inset,
+    0 -14px 28px rgba(15, 118, 110, 0.05) inset,
+    0 12px 32px rgba(28, 25, 23, 0.07),
+    0 4px 14px rgba(15, 118, 110, 0.09);
+  --bubble-shadow-hover:
+    0 1px 0 #fff inset,
+    0 -10px 22px rgba(15, 118, 110, 0.07) inset,
+    0 18px 42px rgba(28, 25, 23, 0.1),
+    0 8px 20px rgba(15, 118, 110, 0.14);
+}
+
+/* ── Reset ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--ff);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--app-bg);
+  overflow: hidden;          /* desktop: no body scroll, views scroll internally */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Allow native scroll on touch devices */
+@media (max-width: 768px) {
+  html { height: 100%; }
+  body { height: 100%; overflow: hidden; }
+  #root { height: 100%; overflow: hidden; }
+}
+
+/* ── Typography ───────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ff);
+  font-weight: 700;
+  color: var(--title);
+  line-height: 1.3;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+/* ── Buttons ──────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 18px;
+  background: linear-gradient(135deg, var(--teal-deep, #0f766e) 0%, var(--accent) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--ff);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+  user-select: none;
+  box-shadow: 0 4px 14px rgba(15, 118, 110, 0.2);
+}
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+  box-shadow: 0 6px 18px rgba(15, 118, 110, 0.28);
+  transform: translateY(-1px);
+}
+.btn-primary:active:not(:disabled) { transform: translateY(0) scale(0.99); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: transparent;
+  color: var(--text2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--ff);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s, transform 0.12s;
+  user-select: none;
+}
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+  transform: translateY(-1px);
+}
+.btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Forms ────────────────────────────────────────── */
+input, select, textarea {
+  font-family: var(--ff);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* ── Utilities ────────────────────────────────────── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 13px;
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── 3D bubble card system ────────────────────────── */
+.bubble-card,
+.stat-card,
+.role-pie-card,
+.module-card,
+.sessions-panel,
+.results-hero,
+.report-scorecard-section,
+.skill-bars,
+.feedback-card,
+.results-empty,
+.profile-summary,
+.profile-panel,
+.iv-step,
+.recommendation-panel,
+.review-panel,
+.report-section-score-card,
+.report-meta-chips li,
+.sidebar-user-card,
+.flow-step,
+.db-interview-table-wrap,
+.history-card {
+  position: relative;
+  border-radius: var(--bubble-radius) !important;
+  background: var(--bubble-bg) !important;
+  border: 1px solid color-mix(in srgb, var(--border) 55%, var(--bubble-border)) !important;
+  box-shadow: var(--bubble-shadow) !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.bubble-card::before,
+.stat-card::before,
+.role-pie-card::before,
+.sessions-panel::before,
+.results-hero::before,
+.report-scorecard-section::before,
+.skill-bars::before,
+.feedback-card::before,
+.profile-summary::before,
+.profile-panel::before,
+.iv-step::before,
+.sidebar-user-card::before {
+  content: '';
+  position: absolute;
+  inset: 1px 1px auto 1px;
+  height: 42%;
+  border-radius: calc(var(--bubble-radius) - 2px) calc(var(--bubble-radius) - 2px) 40% 40%;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    var(--gloss-top) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.7;
+}
+
+[data-theme='dark'] .bubble-card::before,
+[data-theme='dark'] .stat-card::before,
+[data-theme='dark'] .role-pie-card::before,
+[data-theme='dark'] .sessions-panel::before,
+[data-theme='dark'] .results-hero::before,
+[data-theme='dark'] .report-scorecard-section::before,
+[data-theme='dark'] .skill-bars::before,
+[data-theme='dark'] .feedback-card::before,
+[data-theme='dark'] .profile-summary::before,
+[data-theme='dark'] .profile-panel::before,
+[data-theme='dark'] .iv-step::before,
+[data-theme='dark'] .sidebar-user-card::before {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 1;
+}
+
+.stat-card:hover,
+.role-pie-card:hover,
+.module-card:hover,
+.feedback-card:hover,
+.report-section-score-card:hover,
+.sidebar-user-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--bubble-shadow-hover) !important;
+  border-color: color-mix(in srgb, var(--accent) 28%, var(--border)) !important;
+}
+
+.stat-card > *,
+.role-pie-card > *,
+.module-card > *,
+.sessions-panel > *,
+.results-hero > *,
+.report-scorecard-section > *,
+.skill-bars > *,
+.feedback-card > *,
+.profile-summary > *,
+.profile-panel > *,
+.iv-step > *,
+.sidebar-user-card > * {
+  position: relative;
+  z-index: 1;
+}

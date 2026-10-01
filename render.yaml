@@ -1,0 +1,61 @@
+# Render Blueprint — single web service (API + built client)
+# Docs: https://render.com/docs/blueprint-spec
+#
+# Before deploy:
+# 1. Push this repo to GitHub
+# 2. Create a free MongoDB Atlas cluster and copy the connection string
+# 3. In Render: New → Blueprint → select this repo
+# 4. Set required env vars marked sync: false (especially MONGODB_URI)
+
+services:
+  - type: web
+    name: fluent-ai
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.12.0
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: REDIS_URL
+        value: memory://local
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: COOKIE_SECRET
+        generateValue: true
+      - key: AI_PROVIDER
+        value: openai
+      - key: AI_CALLS_ENABLED
+        value: "true"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false

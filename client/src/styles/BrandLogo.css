@@ -1,0 +1,40 @@
+.brand-logo {
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+  flex-shrink: 0;
+}
+
+.brand-logo--sidebar {
+  height: 40px;
+  width: auto;
+  max-width: 200px;
+}
+
+.brand-logo--auth {
+  height: 52px;
+  width: auto;
+  max-width: 240px;
+  margin-bottom: 28px;
+}
+
+.brand-logo--admin {
+  height: 42px;
+  width: auto;
+  max-width: 210px;
+}
+
+.brand-logo--admin.brand-logo--collapsed {
+  height: 36px;
+  width: 36px;
+  max-width: 36px;
+  object-fit: cover;
+  object-position: left center;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .brand-logo--sidebar {
+    display: none;
+  }
+}
